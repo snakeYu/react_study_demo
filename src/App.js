@@ -5,6 +5,9 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 
 class App extends Component {
+  hanedleGreet_p(h){
+    alert('you click me '+h)
+  }
   render() {
     const user={
       name:"Anna",
@@ -17,12 +20,9 @@ class App extends Component {
           <img src={logo} className='App-logo' alt='logo图片'/>
         </div>
 
-        <Footer name={user.name} hobbies={user.hobbies}>
+        <Footer name={user.name} hobbies={user.hobbies} greet={this.hanedleGreet_p}>
           <p>
             I am child;
-          </p>
-          <p>
-            I am child 2
           </p>
         </Footer>
 

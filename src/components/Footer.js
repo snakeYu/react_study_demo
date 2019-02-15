@@ -19,6 +19,9 @@ import PropTypes from 'prop-types';
       age:this.state.age+1
      })
    }
+   handleGreet(h){
+     this.props.greet(h)
+   }
   render(){
     return (
       <div>
@@ -27,7 +30,11 @@ import PropTypes from 'prop-types';
             <ul>
               {
                 // <li onClick={()=>{this.onMakeOlder()}}></li> 这种写法用的很巧妙
-                this.state.hobbies.map(hobby => <li onClick={this.onMakeOlder.bind(this)} key={hobby}>{hobby}</li>)
+                this.state.hobbies.map(hobby => <li onClick={this.onMakeOlder.bind(this)} key={hobby}>
+                
+                {hobby}
+                <button onClick={this.handleGreet.bind(this,hobby)}>click me</button>
+                </li>)
               }
             </ul>
         </div>
@@ -43,7 +50,8 @@ import PropTypes from 'prop-types';
 // Footer后面的propTypes首字母不是大写，不是大写！！！！！
 Footer.propTypes = {
   name: PropTypes.string,
-  hobbies:PropTypes.array
+  hobbies:PropTypes.array,
+  greet:PropTypes.func
 };
 
 export default Footer;
