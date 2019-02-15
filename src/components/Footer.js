@@ -19,7 +19,7 @@ import PropTypes from 'prop-types';
       age:this.state.age+1
      })
    }
-   handleGreet(h){
+   handleGreet_c(h){
      this.props.greet(h)
    }
   render(){
@@ -33,7 +33,7 @@ import PropTypes from 'prop-types';
                 this.state.hobbies.map(hobby => <li onClick={this.onMakeOlder.bind(this)} key={hobby}>
                 
                 {hobby}
-                <button onClick={this.handleGreet.bind(this,hobby)}>click me</button>
+                <button onClick={this.handleGreet_c.bind(this,hobby)}>click me</button>
                 </li>)
               }
             </ul>

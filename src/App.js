@@ -5,22 +5,33 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      headerValue:"default",
+      user:{
+        name:"Anna",
+        hobbies:['sports','playGames']
+      }
+    }
+  }
   hanedleGreet_p(h){
-    alert('you click me '+h)
+    this.setState({
+      headerValue:h
+    })
   }
   render() {
-    const user={
-      name:"Anna",
-      hobbies:['sports','playGames']
-    }
     return (
       <div className="App">
-        <Header></Header>
+        <Header headerValue={this.state.headerValue}></Header>
         <div className="content">
           <img src={logo} className='App-logo' alt='logo图片'/>
         </div>
 
-        <Footer name={user.name} hobbies={user.hobbies} greet={this.hanedleGreet_p}>
+        <Footer 
+          name={this.state.user.name} 
+          hobbies={this.state.user.hobbies} 
+          greet={this.hanedleGreet_p.bind(this)} >
           <p>
             I am child;
           </p>

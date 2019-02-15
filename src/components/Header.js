@@ -5,7 +5,7 @@ import React from 'react'
 const Header=(props)=>{
     return (
       <div>
-        <header>this is header</header>
+        <header>this is header,{props.headerValue}</header>
       </div>
     )
 }
