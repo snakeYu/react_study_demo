@@ -49,6 +49,32 @@ class App extends Component {
       </div>
     );
   }
+  componentWillMount(){
+    console.log('willMount')
+  }
+  componentDidMount(){
+    console.log('didMount')
+  }
+  componentWillReceiveProps(nextProps){
+    // 当你传入一个新的props的时候才会触发
+    console.log('willReceiveProps',nextProps)
+  }
+  shouldComponentUpdate(nextProps,nextState){
+    // 当你的props和state任意一个有变化都会触发
+    console.log('shouldUpdate',nextProps,nextState)
+    // 这里必须返回一个Boolean值
+    return true;
+  }
+  componentWillUpdate(nextProps,nextState){
+    console.log('willUpdate',nextProps,nextState)
+  }
+  componentDidUpdate(prevProps,prevState){
+    console.log('didUpdate',prevProps,prevState)
+  }
+  componentWillUnmount(){
+    console.log('willUnmount')
+    
+  }
 }
 
 export default App;
