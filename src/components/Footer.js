@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
   //  如果要使用constructor的话一定要记住传入props，如论是否用的到。
    constructor(props){ 
      super(props);
+    //  props是无法修改的，只能获取，如果要修改状态的话，只能借用state
     this.state={
       name:this.props.name,
       hobbies:this.props.hobbies,
