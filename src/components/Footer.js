@@ -4,16 +4,32 @@ import React ,{Component} from 'react';
 import PropTypes from 'prop-types';
 
  class Footer extends Component{
+  //  如果要使用constructor的话一定要记住传入props，如论是否用的到。
+   constructor(props){ 
+     super(props);
+    this.state={
+      name:this.props.name,
+      hobbies:this.props.hobbies,
+      age:0
+    }
+   }
+   onMakeOlder(){
+     this.setState({
+      age:this.state.age+1
+     })
+   }
   render(){
     return (
       <div>
-        <footer>this is {this.props.name}</footer>
-        <ul>
-          {
-            this.props.hobbies.map(hobby => <li key={hobby}>{hobby}</li>)
-          }
-        </ul>
-
+        <div className="new">
+            <footer>this is {this.state.name},I'm {this.state.age}</footer>
+            <ul>
+              {
+                // <li onClick={()=>{this.onMakeOlder()}}></li> 这种写法用的很巧妙
+                this.state.hobbies.map(hobby => <li onClick={this.onMakeOlder.bind(this)} key={hobby}>{hobby}</li>)
+              }
+            </ul>
+        </div>
         <div>
           {/* 这里可以通过this.props.children获取父元素中的子元素，类似于slot的作用 */}
           {this.props.children}
