@@ -12,7 +12,8 @@ class App extends Component {
       user:{
         name:"Anna",
         hobbies:['sports','playGames']
-      }
+      },
+      inputValue:'default'
     }
   }
   hanedleGreet_p(h){
@@ -20,10 +21,15 @@ class App extends Component {
       headerValue:h
     })
   }
+  handleChange(v){
+    this.setState({
+      inputValue:v
+    })
+  }
   render() {
     return (
       <div className="App">
-        <Header headerValue={this.state.headerValue}></Header>
+        <Header headerValue={this.state.headerValue} inputValue={this.state.inputValue}></Header>
         <div className="content">
           <img src={logo} className='App-logo' alt='logo图片'/>
         </div>
@@ -31,7 +37,9 @@ class App extends Component {
         <Footer 
           name={this.state.user.name} 
           hobbies={this.state.user.hobbies} 
-          greet={this.hanedleGreet_p.bind(this)} >
+          greet={this.hanedleGreet_p.bind(this)}
+          handleChange={this.handleChange.bind(this)} 
+          inputValue={this.state.inputValue}>
           <p>
             I am child;
           </p>

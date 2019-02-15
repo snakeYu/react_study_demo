@@ -6,6 +6,7 @@ const Header=(props)=>{
     return (
       <div>
         <header>this is header,{props.headerValue}</header>
+        <p>我就是输入的你输入的那个：{props.inputValue}</p>
       </div>
     )
 }

@@ -11,7 +11,8 @@ import PropTypes from 'prop-types';
     this.state={
       name:this.props.name,
       hobbies:this.props.hobbies,
-      age:0
+      age:0,
+      v:this.props.inputValue
     }
    }
    onMakeOlder(){
@@ -21,6 +22,10 @@ import PropTypes from 'prop-types';
    }
    handleGreet_c(h){
      this.props.greet(h)
+   }
+   handleChange_c(event){
+    //  要获取输入框的值，需要使用到一个参数那就是event
+     this.props.handleChange(event.target.value)
    }
   render(){
     return (
@@ -37,6 +42,16 @@ import PropTypes from 'prop-types';
                 </li>)
               }
             </ul>
+
+
+              {/* defaultValue 和 value不要同时使用，那样会在控制台报错 */}
+            <input type="text" 
+              defaultValue={this.props.inputValue}
+              // value={this.state.v}  
+              // onChange={(event)=>{this.setState({
+              //   v:event.target.input
+              // })}}
+              onChange={this.handleChange_c.bind(this)}/>
         </div>
         <div>
           {/* 这里可以通过this.props.children获取父元素中的子元素，类似于slot的作用 */}
